@@ -1,6 +1,7 @@
 package kz.main.security_orda.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -18,7 +19,7 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Table(name = "users", schema = "test-security")
+@Table(name = "users", schema = "testsecorda")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -37,7 +38,7 @@ public class User implements UserDetails {
 
     private String password;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Permission> permissions;
 
     @Override

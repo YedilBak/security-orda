@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="links.html"></div>
+</head>
+<body>
+<div class="row">
+    <div class="col-6 justify-content-center">
+        <form method="post" action="/auth">
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="text" class="form-control" name="email">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="password" class="form-control" name="password">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                   <button class="btn btn-success btn-sm">SIGN-IN</button>
+                </div>
+            </div>
+        </form>
+        <form action="/register" method="get">
+            <button class="btn btn-sm btn-secondary">REGISTER PAGE</button>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

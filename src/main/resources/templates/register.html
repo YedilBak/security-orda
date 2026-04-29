@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <div th:insert="links.html"></div>
+</head>
+<body>
+<div class="row">
+    <div class="col-6 justify-content-center">
+        <form method="post" action="/register">
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>ENTER EMAIL:</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="text" class="form-control" name="email">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>ENTER PASSWORD:</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="password" class="form-control" name="password">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>ENTER REPASSWORD:</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="password" class="form-control" name="repassword">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>ENTER FULL NAME:</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="text" class="form-control" name="fullName">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <label>ENTER GPA:</label>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <input type="text" class="form-control" name="gpa">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                   <button class="btn btn-success btn-sm">SIGN-UP</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

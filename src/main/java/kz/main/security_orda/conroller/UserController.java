@@ -9,6 +9,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
@@ -58,6 +59,21 @@ public class UserController {
     public String getRegister(User user, String repassword){
 
         userService.addUser(user, repassword);
+        return "redirect:/";
+    }
+
+    @PreAuthorize("isAuthenticated()")
+    @PostMapping(value = "/change-pas")
+    public String changePas(@RequestParam String oldPas,
+                            @RequestParam String newPas,
+                            @RequestParam String reNewPas){
+
+        System.out.println(oldPas);
+        System.out.println(newPas);
+        System.out.println(reNewPas);
+
+        userService.changePassword(oldPas, newPas, reNewPas);
+
         return "redirect:/";
     }
 

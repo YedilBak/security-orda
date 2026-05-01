@@ -5,6 +5,7 @@ import kz.main.security_orda.model.User;
 import kz.main.security_orda.repository.PermissionRepository;
 import kz.main.security_orda.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,12 @@ public class UserService {
     private final BCryptPasswordEncoder passwordEncoder;
 
 
-    public Permission getPermission(){
+    private Permission getPermission(){
         return permissionRepository.getStandartPermission();
+    }
+
+    private User getUserFromSession(){
+        return (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 
@@ -41,6 +46,22 @@ public class UserService {
         user.setPassword(passwordEncoder.encode(repassword));
 
         userRepository.save(user);
+
+    }
+
+    public void changePassword(String oldPas, String newPas, String reNewPas){
+
+        if(!passwordEncoder.matches(oldPas, getUserFromSession().getPassword())){
+            return;
+        }
+
+        if(!newPas.equals(reNewPas)){
+            return;
+        }
+
+        getUserFromSession().setPassword(passwordEncoder.encode(reNewPas));
+
+        userRepository.save(getUserFromSession());
 
     }
 }

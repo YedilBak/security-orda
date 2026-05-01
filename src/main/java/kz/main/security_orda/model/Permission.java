@@ -13,7 +13,7 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.security.core.GrantedAuthority;
 
 @Entity
-@Table(name = "permissions", schema = "testsecorda")
+@Table(name = "permissions")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
